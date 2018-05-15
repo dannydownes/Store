@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<title>Digital Deals: Basket</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="resources/css/master.css">
+<style>  
+
+body{
+font-family: Cav;}
+    
+section li{
+margin: 0 auto;
+text-align: center;
+width:250px;
+min-height: 100px;
+display:inline-table;
+border-style: ridge;
+vertical-align:top;
+vertical-align: bottom;
+font-family: CavBold;}
+    
+article{
+text-align: center;}
+    
+button{
+padding:5px;
+background-color: white;
+border: 1px ridge black;
+color:black;}
+    
+</style>
+</head>
+
+<body>
+    
+<basket>
+<a href="basket.html"><img src = "./resources/images/basket.png" alt="Basket" style="width: 7%;"></a>    
+</basket>
+    
+<header>
+<img src = "./resources/images/Logo.png" alt="Store Logo" style="width: 90%; display:block; margin-left:auto; margin-right:auto;">
+<nav>
+<ul>
+	<li><a href="index.html">Home</a></li> 
+	<li><a href="store.html">Store</a>
+		<ul id="submenu">
+			<li><a href="games.html">Games</a></li>
+			<li><a href="music.html">Music</a></li>
+			<li><a href="tv.html">TV/Film</a></li>						
+		</ul>
+	</li>
+	<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</nav>
+</header>
+
+<section>
+
+<article>
+<h1>Shopping Basket</h1>
+<ul id = "show-basket">
+    <li></li>
+</ul>
+<br>
+<button id="clear-basket">Empty Basket</button>
+<div>You have <span id="count-basket">X</span> items in your basket.</div>
+<div>Total Price: &#163;<span id="total-basket"></span></div>
+</article>
+</section> 
+   
+<footer>
+<h1>This website is purely for educational purposes.</h1>
+</footer>
+
+<script src="basket.js"></script>
+<script>
+    $(".add-to-basket").click(function(event){
+        event.preventDefault();
+        var name = $(this).attr("data-name");
+        var price = Number($(this).attr("data-price"));
+        shoppingBasket.addItemToBasket(name, price, 1);
+        displayBasket();
+    });
+    
+    $("#clear-basket").click(function(event){
+        shoppingBasket.clearBasket();
+        displayBasket();
+    });
+    
+    function displayBasket() {
+                var basketArray = shoppingBasket.listBasket();
+                console.log(basketArray);
+                var output = "";
+                for (var i in basketArray) {
+                    output += "<li>"
+                        +basketArray[i].name
+                        +"<br>"+basketArray[i].count
+						+" x &#163;"+basketArray[i].price
+                        +" = &#163;"+basketArray[i].total
+                        +"<br><button class='subtract-item' data-name='"
+                        +basketArray[i].name+"'>Remove Item</button>"
+                        +"</li>";
+        }
+
+        $("#show-basket").html(output);
+        $("#count-basket").html( shoppingBasket.countBasket() );
+        $("#total-basket").html( shoppingBasket.totalBasket() );
+    }
+    
+    $("#show-basket").on("click", ".subtract-item", function(event){
+        var name = $(this).attr("data-name");
+        shoppingBasket.removeItemFromBasket(name);
+        displayBasket();
+    });
+    
+    
+    displayBasket();
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+@font-face{
+font-family: CavBold;
+src: url(../fonts/CaviarDreams_Bold.ttf)}
+
+@font-face{
+font-family: Cav;
+src: url(../fonts/CaviarDreams.ttf)}
+
+body{
+margin:0px;
+background-color:black;}
+
+header{
+width:70%;
+background-color: white;
+padding:0 10px 0 10px;
+margin-left:auto;
+margin-right:auto;}
+
+section{
+margin-left:auto;
+margin-right:auto;
+padding:10px;
+width:70%;
+margin-top:10px;
+background-color:white;}
+
+h1{
+font-family: CavBold; 
+font-size: 1.3em;}
+
+p{
+font-family: Cav;}
+
+p a{
+font-family: CavBold;}
+
+/*Navigation Bar*/
+nav{
+text-align:center;
+font-family: CavBold;
+font-size:1.3em;}
+
+ul{
+padding: 5px;  
+list-style: none;
+position: relative;
+display: inline-table;}
+
+ul li{
+float: left;
+padding:0 30px 0 30px;}
+
+li a {
+display: block; 
+padding:5px 20px 5px 20px;
+color: white; 
+text-decoration: none;}
+
+a:link, a:visited{
+color:black;
+text-decoration:none;}
+
+a:hover, a:active{
+background-color:black;
+color:white;
+text-decoration:none;}
+
+ul ul{
+z-index: 999;
+display: none;
+background-color:black;
+position: absolute;}
+	
+ul li:hover > ul {
+display: block;}
+
+ul ul li a:link, ul ul li a:visited{
+color:white;
+text-decoration:none;}
+
+ul ul li a:hover{
+background-color:white;
+color:black;
+text-decoration:none;}
+	
+ul ul li {
+padding:0;
+float:none;
+position: relative;}
+
+footer{
+margin-left: auto;
+margin-right: auto;
+margin-top: 10px;
+text-align: center;
+background-color: white;
+padding:10px;
+width:70%;}
+
+basket img{
+position: fixed;
+top:4%;
+right:4%;
+-webkit-filter: invert(1);
+filter: invert(1);}

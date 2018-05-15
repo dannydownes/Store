@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+<title>Digital Deals: Contact Us</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="resources/css/master.css">
+<style>
+    
+article{
+text-align:center;
+width:98%;
+height:500px;
+display:inline-table;
+padding:5px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 8px;
+border-style: ridge;
+font-family: Cav}
+    
+aside{
+text-align:center;
+width:48%;
+height:500px;
+display:inline-table;
+padding:5px;
+margin: 0 8px 8px 0;
+border-style: ridge;
+font-family: Cav}
+    
+div{
+display:block;
+margin: auto;}
+    
+label{
+font-family: CavBold;}
+    
+input, textarea {
+width:90%;
+height:20px;
+background-color: lightgrey;
+border:1px ridge black;
+padding:5px;
+margin-top:3px;
+font-size:0.9em;
+color:black;
+font-family: Cav;}
+    
+textarea {
+width:90%;
+height:90px;
+background-color: lightgrey;
+border:1px ridge black;
+padding:5px;
+margin-top:3px;
+font-size:0.9em;
+color:black;
+font-family: Cav;}
+    
+#submit{
+height:40px;
+width:100px;}
+    
+#submit:hover {
+opacity:0.8;
+border:3px ridge black;}
+    
+input:focus, textarea:focus {
+border:3px ridge black;}
+</style>
+</head>
+
+<body>
+    
+<basket>
+<a href="basket.html"><img src = "./resources/images/basket.png" alt="Basket" style="width: 7%;"></a>    
+</basket>
+    
+<header>
+<img src = "./resources/images/Logo.png" alt="Store Logo" style="width: 90%; display:block; margin-left:auto; margin-right:auto;">
+<nav>
+<ul>
+	<li><a href="index.html">Home</a></li> 
+	<li><a href="store.html">Store</a>
+		<ul id="submenu">
+			<li><a href="games.html">Games</a></li>
+			<li><a href="music.html">Music</a></li>
+			<li><a href="tv.html">TV/Film</a></li>						
+		</ul>
+	</li>
+	<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</nav>
+</header>
+
+<section>
+<article>
+<h1>Contact Information:</h1>
+<p>
+    <h1>By Phone:</h1>
+    Customer Number:<br>0123 456 7891<br>
+    Business Enquiries:<br>0123 456 7892<br><br>
+    
+    <h1>By Email:</h1>
+    Email Address:<br>contact@digitaldeals.co.uk<br><br>
+    
+    <h1>By Post</h1>
+    
+    123 Made Up Street<br>
+    Made Up Town<br>
+    Made Up City<br>
+    MA03 0PP
+</p>
+</article>
+    
+<aside>
+<h1>Nearest Store:</h1>
+<div id="map" style="width:500px;height:380px;"></div>
+</aside>
+
+<aside>
+<h1>Opening Times:</h1><br>
+<p>
+    Monday:<br> 09:00 - 17:00<br>
+    Tuesday:<br> 09:00 - 17:00<br>
+    Wednesday:<br> 09:00 - 17:00<br>
+    Thursday:<br> 09:00 - 17:00<br>
+    Friday:<br> 09:00 - 17:00<br>
+    Saturday:<br> 09:00 - 17:00<br>
+    Sunday:<br> 09:00 - 17:00<br>
+</p>
+</aside>
+</section>
+<footer>
+<h1>This website is purely for educational purposes.</h1>
+</footer>
+    
+<script>
+//creates map and adds the shop markers    
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 10
+  });
+  var infoWindow = new google.maps.InfoWindow({map: map});
+  
+    var image = './resources/images/marker.png';
+    
+    var leedsCo = new google.maps.LatLng(53.800,-1.549);
+    var leeds = new google.maps.Marker({
+    position:leedsCo,
+    title:"Leeds Shop",
+    icon: image});
+    
+    var liverCo = new google.maps.LatLng(53.408,-2.991);
+    var liver = new google.maps.Marker({
+    position:liverCo,
+    title:"Liverpool Shop",
+    icon: image});
+    
+    var lincolnCo = new google.maps.LatLng(53.23, -0.540);
+    var lincoln = new google.maps.Marker({
+    position:lincolnCo,
+    title:"Lincoln Shop",
+    icon: image});
+    
+    var newCo = new google.maps.LatLng(54.978,-1.617);
+    var newc = new google.maps.Marker({
+    position:newCo,
+    title:"Newcastle Shop",
+    icon: image});
+    
+    var birCo = new google.maps.LatLng(52.486,-1.890);
+    var bir = new google.maps.Marker({
+    position:birCo,
+    title:"Birmingham Shop",
+    icon: image});
+    
+    var lonCo = new google.maps.LatLng(51.507,-0.127);
+    var london = new google.maps.Marker({
+    position:lonCo,
+    title:"London Shop",
+    icon: image});
+      
+    leeds.setMap(map);
+    liver.setMap(map);
+    lincoln.setMap(map);
+    newc.setMap(map);
+    bir.setMap(map);
+    london.setMap(map);
+    
+  // Geolocation
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser does\'t support geolocation.');
+}
+
+</script>   
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDrxRJMyKeeX-qx-43xgTxDOva7VUVdt8&signed_in=true&callback=initMap"async defer>
+</script> 
+</body>
+</html>

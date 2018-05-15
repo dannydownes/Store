@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<title>Digital Deals: Games</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="resources/css/master.css">
+<style>
+section{
+text-align: center;}
+    
+aside{
+padding:5px;   
+text-align: center;
+width: 18%;
+height:400px;
+border-style: ridge;
+display:inline-table;
+vertical-align: top;
+vertical-align: bottom;}
+    
+h1{
+text-align: center;}
+    
+aside img{
+max-height:400px;
+width:80%;}
+    
+aside button{
+padding:5px;
+background-color: white;
+border: 1px ridge black;
+color:black;}
+    
+#dialogoverlay{
+display: none;
+opacity: 0.8;
+position: fixed;
+top: 0px;
+left: 0px;
+background: gray;
+width: 100%;
+z-index: 10;}
+    
+#dialogbox{
+text-align: center;
+display: none;
+position: fixed;
+background-color: black; 
+width:550px;
+z-index: 10;
+font-family: Cav}
+    
+#dialogbox > div{ 
+background-color:black; 
+margin:8px;}
+    
+#dialogbox > div > #dialogboxhead{ 
+background-color: white; 
+font-size:19px; 
+padding:10px; 
+color:black; }
+    
+#dialogbox > div > #dialogboxbody{ 
+background-color:black;; 
+padding:20px; 
+color:white;}
+    
+#dialogbox > div > #dialogboxfoot{ 
+background-color: white; 
+padding:10px;}
+</style>
+</head>
+
+<body>
+    
+<basket>
+<a href="basket.html"><img src = "./resources/images/basket.png" alt="Basket" style="width: 7%;"></a>    
+</basket>
+    
+<header>
+<img src = "./resources/images/Logo.png" alt="Store Logo" style="width: 90%; display:block; margin-left:auto; margin-right:auto;">
+<nav>
+<ul>
+	<li><a href="index.html">Home</a></li> 
+	<li><a href="store.html">Store</a>
+		<ul id="submenu">
+			<li><a href="games.html">Games</a></li>
+			<li><a href="music.html">Music</a></li>
+			<li><a href="tv.html">TV/Film</a></li>						
+		</ul>
+	</li>
+	<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</nav>
+</header>
+    
+<div id="dialogoverlay"></div>
+<div id="dialogbox">
+  <div>
+    <div id="dialogboxhead"></div>
+    <div id="dialogboxbody"></div>
+    <div id="dialogboxfoot"></div>
+  </div>
+</div>
+
+<section>
+<aside> 
+<img src="resources/images/games/fh.png" alt="For Honor">
+<h1>For Honor<br>&#163;39.99</h1>
+<button class="add-to-basket" href="#" data-name="For Honor" data-price="39.99">Add To Basket</button>
+</aside>
+    
+<aside> 
+<img src="resources/images/games/fo.png" alt="Fallout 4">
+<h1>Fallout 4<br>&#163;39.99</h1>
+<button class="add-to-basket" href="#" data-name="Fallout 4" data-price="39.99">Add To Basket</button>
+</aside>
+    
+<aside> 
+<img src="resources/images/games/cod.png" alt="Call of Duty">
+<h1>Call of Duty:<br>Black Ops III<br>&#163;39.99</h1>
+<button class="add-to-basket" href="#" data-name="Call Of Duty: BO3" data-price="39.99">Add To Basket</button>
+</aside>
+    
+<aside> 
+<img src="resources/images/games/tcrs.png" alt="Tom Clancy Seige">
+<h1>Rainbow Six: Seige<br>&#163;39.99</h1>
+<button class="add-to-basket" href="#" data-name="Rainbow Six: Seige" data-price="39.99">Add To Basket</button>
+</aside>
+        
+<aside> 
+<img src="resources/images/games/fifa.png" alt="Fifa 16">
+<h1>Fifa 16<br>&#163;39.99</h1>
+<button class="add-to-basket" href="#" data-name="Fifa 16" data-price="39.99">Add To Basket</button>
+</aside>
+    
+<aside> 
+<img src="resources/images/games/jc.png" alt="Just Cause 3">
+<h1>Just Cause 3<br>&#163;39.99</h1>
+<button class="add-to-basket" href="#" data-name="Just Cause 3" data-price="39.99">Add To Basket</button>
+</aside>
+    
+<aside> 
+<img src="resources/images/games/acs.png" alt="Assassins Creed Syndicate">
+<h1>Assassins Creed Syndicate<br>&#163;39.99</h1>
+<button class="add-to-basket" href="#" data-name="Assassins Creed Syndicate" data-price="39.99">Add To Basket</button>
+</aside>
+    
+<aside> 
+<img src="resources/images/games/sw.png" alt="Star Wars Battlefront">
+<h1>Star Wars Battlefront<br>&#163;39.99</h1>
+<button class="add-to-basket" href="#" data-name="Star Wars Battlefront" data-price="39.99">Add To Basket</button>
+</aside>
+    
+<aside> 
+<img src="resources/images/games/gta.png" alt="Grand Theft Auto V">
+<h1>Grand Theft Auto 5<br>&#163;39.99</h1>
+<button class="add-to-basket" href="#" data-name="Grand Theft Auto 5" data-price="39.99">Add To Basket</button>
+</aside>
+    
+<aside> 
+<img src="resources/images/games/mgs.png" alt="Metal Gear Solid">
+<h1>Metal Gear Solid: Phantom Pain<br>&#163;39.99</h1>
+<button class="add-to-basket" href="#" data-name="MGS: Phantom Pain" data-price="39.99">Add To Basket</button>
+</aside>
+</section>
+    
+<footer>
+<h1>This website is purely for educational purposes.</h1>
+</footer>
+    
+<script src="basket.js"></script>
+<script>
+    $(".add-to-basket").click(function(event){
+        event.preventDefault();
+        var name = $(this).attr("data-name");
+        var price = Number($(this).attr("data-price"));
+        shoppingBasket.addItemToBasket(name, price, 1);
+        Alert.render($(this).attr("data-name") + " has been added to your basket.")
+        displayBasket();
+    });
+    
+function CustomAlert(){
+    this.render = function(dialog){
+        var winW = window.innerWidth;
+        var winH = window.innerHeight;
+        var dialogoverlay = document.getElementById('dialogoverlay');
+        var dialogbox = document.getElementById('dialogbox');
+        dialogoverlay.style.display = "block";
+        dialogoverlay.style.height = winH+"px";
+        dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+        dialogbox.style.top = "100px";
+        dialogbox.style.display = "block";
+        document.getElementById('dialogboxhead').innerHTML = "Shopping Basket";
+        document.getElementById('dialogboxbody').innerHTML = dialog;
+        document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()">Continue Shopping</button>';
+    }
+    
+	this.ok = function(){
+		document.getElementById('dialogbox').style.display = "none";
+		document.getElementById('dialogoverlay').style.display = "none";
+	}
+}
+var Alert = new CustomAlert();
+</script>
+</body>
+</html>
